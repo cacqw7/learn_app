@@ -1,0 +1,12 @@
+<a class="list-group-item" href="{{link.url}}">
+  <div class="media">
+    <div class="media-left">
+      <img class="media-object link-thumbnail" src="{{link.thumbnail_url}}" alt="{{link.title}}" />
+    </div>
+    <div class="media-body">
+      <h4>{{ link.title }}</h4>
+      {{ link.description }}
+    </div>
+  </div>
+</a>
+{{yield}}
