@@ -1,0 +1,16 @@
+<form>
+  <fieldset class="form-group row">
+    {{input autofocus=true class="form-control" type="url" value=url placeholder="URL"}}
+  </fieldset>
+  <fieldset class="form-group row">
+    {{input class="form-control" value=title placeholder="Title (optional)" }}
+  </fieldset>
+  <fieldset class="form-group row">
+    {{textarea class="form-control" value=description placeholder="Description (optional)"}}
+  </fieldset>
+  <p><button class="btn btn-primary" {{action "createLink" this}}>Create</button></p>
+
+</form>
+
+
+{{yield}}
