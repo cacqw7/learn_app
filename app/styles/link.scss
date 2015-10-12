@@ -3,6 +3,6 @@
 }
 
 .link-thumbnail {
-  max-width: 100px;
-  max-heigh: 100px;
+  max-width: $thumbnail-width;
+  max-height: $thumbnail-height;
 }
