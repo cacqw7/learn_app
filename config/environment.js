@@ -13,6 +13,17 @@ module.exports = function(environment) {
       }
     },
 
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'github-oauth2': {
+          apiKey: '5bdce281d74a32366255',
+          scope: 'user',
+          redirectURI: '/links'
+        }
+      }
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
