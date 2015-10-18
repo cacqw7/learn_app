@@ -1,3 +1,17 @@
 $thumbnail-height: 50px;
 $thumbnail-width: 50px;
+$sign-in-btn-color: rgba(19, 112, 133, 0.95);
 @import 'link.scss';
+
+.avatar-img {
+  width: $thumbnail-width;
+  height: $thumbnail-height;
+}
+
+.sign-in-btn {
+  color: $sign-in-btn-color;
+}
+
+.navbar{
+  margin-bottom: 20px;
+}

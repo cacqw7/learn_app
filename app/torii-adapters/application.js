@@ -10,12 +10,12 @@ export default Ember.Object.extend({
         success: Ember.run.bind(null, resolve),
         error: Ember.run.bind(null, reject)
       });
-    }).then(function(user){
+    }).then(function(data){
       // The returned object is merged onto the session (basically). Here
       // you may also want to persist the new session with cookies or via
       // localStorage.
       return {
-        currentUser: user.user
+        currentUser: data.user
       };
     });
   },
@@ -31,13 +31,33 @@ export default Ember.Object.extend({
         success: Ember.run.bind(null, resolve),
         error: Ember.run.bind(null, reject)
       });
-    }).then(function(user){
+    }).then(function(data){
       // The returned object is merged onto the session (basically). Here
       // you may also want to persist the new session with cookies or via
       // localStorage.
       return {
-        currentUser: user.user
+        currentUser: data.user
       };
+    });
+  },
+  close: function() {
+    var authToken = localStorage.token;
+
+    localStorage.token = null;
+    // var adapter = this.container.lookup('adapter:application');
+    // adapter.set('headers', { 'Authorization': authToken });
+
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      Ember.$.ajax({
+        url: 'http://localhost:3000/session/logout',
+        data: {
+          'access_code': authToken
+        },
+        dataType: 'json',
+        type: 'POST',
+        success: Ember.run.bind(null, resolve),
+        error: Ember.run.bind(null, reject)
+      });
     });
   }
 });

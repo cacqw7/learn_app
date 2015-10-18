@@ -1,9 +1,1 @@
-{{#if true}}
-  {{!-- {{partial "comment-form"}} --}}
-  {{session.currentUser.email}}
-  <h2>you got the form</h2>
-{{else}}
-  <a href="#" {{action 'signInViaGithub'}}>
-    Sign in to comment
-  </a>
-{{/if}}
+{{link-list links=model}}

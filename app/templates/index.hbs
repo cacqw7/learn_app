@@ -1,1 +1,8 @@
-{{link-list links=model}}
+{{#if session.currentUser}}
+  <div class="container">
+    <h1>This is where the dashboard would be</h1>
+    <h4>{{#link-to 'links'}}Links{{/link-to}}</h4>
+  </div>
+{{else}}
+  <h1>Promo page</h1>
+{{/if}}

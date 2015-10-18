@@ -16,6 +16,11 @@ export default Ember.Route.extend({
   actions: {
     logout: function() {
       this.get('session').close();
+      this.transitionTo('index');
+    },
+    accessDenied: function() {
+      this.controllerFor('login').set('error', "You must be logged in to view that page.")
+      this.transitionTo('login');
     }
   }
 });

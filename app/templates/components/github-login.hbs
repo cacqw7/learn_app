@@ -1,0 +1,16 @@
+{{#if session.isWorking}}
+  One sec while we get you signed in...
+{{else}}
+  <div class="github-login-card">
+    <div class="card text-center col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1 col-xl-4 col-xl-offset-4">
+      <div class="card-block">
+        <img src="github120px.png" alt="" />
+      </div>
+      <div class="card-block">
+        <a {{action 'signInViaGithub' }} class="sign-in-btn btn btn-secondary-outline">Sign in with GitHub</a>
+      </div>
+    </div>
+  </div>
+{{/if}}
+
+{{yield}}
