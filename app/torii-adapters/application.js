@@ -1,10 +1,12 @@
+import ENV from '../config/environment';
+
 export default Ember.Object.extend({
   open: function(authentication){
     var authorizationCode = authentication.authorizationCode;
     localStorage.token = authorizationCode;
     return new Ember.RSVP.Promise(function(resolve, reject){
       Ember.$.ajax({
-        url: 'http://localhost:3000/session',
+        url: ENV.APP.API_URL + '/session',
         data: { 'access_code': authorizationCode },
         dataType: 'json',
         success: Ember.run.bind(null, resolve),
@@ -25,7 +27,7 @@ export default Ember.Object.extend({
     }
     return new Ember.RSVP.Promise(function(resolve, reject){
       Ember.$.ajax({
-        url: 'http://localhost:3000/session/fetch',
+        url: ENV.APP.API_URL + '/session/fetch',
         data: { 'access_code': localStorage.token },
         dataType: 'json',
         success: Ember.run.bind(null, resolve),
@@ -49,7 +51,7 @@ export default Ember.Object.extend({
 
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.ajax({
-        url: 'http://localhost:3000/session/logout',
+        url: ENV.APP.API_URL + '/session/logout',
         data: {
           'access_code': authToken
         },
