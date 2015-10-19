@@ -61,5 +61,8 @@ export default Ember.Object.extend({
         error: Ember.run.bind(null, reject)
       });
     });
+  },
+  rejectPromise: function() {
+    Ember.Logger.debug('no token in local storage');
   }
 });

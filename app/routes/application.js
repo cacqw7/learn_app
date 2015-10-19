@@ -5,11 +5,10 @@ export default Ember.Route.extend({
     return this.store.findAll('link');
   },
   beforeModel: function() {
-    
     return this.get('session').fetch().then(function() {
-      console.log('session fetched');
+      Ember.Logger.debug('session fetched');
     }, function() {
-      console.log('no session to fetch');
+      Ember.Logger.debug('no session to fetch');
     });
   },
 
@@ -19,7 +18,7 @@ export default Ember.Route.extend({
       this.transitionTo('index');
     },
     accessDenied: function() {
-      this.controllerFor('login').set('error', "You must be logged in to view that page.")
+      this.controllerFor('login').set('error', "You must be logged in to view that page.");
       this.transitionTo('login');
     }
   }
